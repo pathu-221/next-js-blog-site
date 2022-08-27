@@ -50,7 +50,7 @@ export default function Navbar() {
                 )}
                 {!username && (
                     <li>
-                        <Link href={`${username}`}>
+                        <Link href='/enter'>
                             <Button className="button" variant='contained' size='large'>Log in</Button>
                         </Link>
                     </li>
