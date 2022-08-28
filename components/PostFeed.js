@@ -7,8 +7,7 @@ export default function PostFeed({ posts, admin }){
 function PostItem ({ post }){
 
     const wordCount = post?.content.trim().split(/\s + /g).length;
-    const minutesToRead = (wordCount /100 + 1).toFixed(0);
-
+    const minutesToRead = (wordCount/100 + 1).toFixed(0);
     return (
         <div className="card">
 
@@ -20,7 +19,7 @@ function PostItem ({ post }){
 
             <Link href={`/${post.username}/${post.slug}`}>
                 <h2>
-                    <a>{post.title}</a>
+                    <a  style={{ cursor: 'pointer'}}>{post.title}</a>
                 </h2>
             </Link>
             

@@ -103,6 +103,27 @@ a {
 }
 
 
+.post-feed-container {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+
+.post-feed-container section {
+  flex: 0.85;
+  flex-wrap: wrap;
+  margin-right: 5px;
+}
+
+.post-feed-container aside { 
+  flex: 0.15;
+  display: flex;
+  margin-left: 5px;
+  max-height: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes spin {
  0%{ transform: rotate(0deg);}
  100%{ transform: rotate(360deg);} 
