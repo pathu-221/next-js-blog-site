@@ -3,6 +3,7 @@ import { Button, Avatar } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useContext } from "react";
 import { UserContext } from "@lib/context";
+import SignOutButton from '@components/SignOutButton';
 
 const theme = createTheme({
     palette: {
@@ -32,6 +33,9 @@ export default function Navbar() {
                 </ThemeProvider>
                 {user && (
                     <div className="push-right">
+                         <li >
+                           <SignOutButton/>
+                        </li>
                         <li >
                             <Link href="/admin">
                                 <Button variant='contained' className="button">Write posts</Button>
@@ -39,7 +43,7 @@ export default function Navbar() {
 
                         </li>
                         <li>
-                            <Link href={`${username}`}>
+                            <Link href={`/${username}`}>
                                 <Avatar
                                 sx={{
                                     width: '50px',

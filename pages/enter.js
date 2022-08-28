@@ -1,15 +1,20 @@
 
-import { auth, firestore, googleAuthProvider } from '@lib/firebase';
+import { auth, firestore, getUserWithUsername, googleAuthProvider } from '@lib/firebase';
 import { FcGoogle } from 'react-icons/fc';
 import { TextField, Button, LoadingButton } from '@mui/material';
 import { useContext, useState, useCallback, useEffect } from 'react';
 import { UserContext } from '@lib/context';
+import SignOutButton from '@components/SignOutButton';
+
 
 import debounce from 'lodash.debounce';
 
 export default function Enter ({}) {
 
     const { user, username } = useContext(UserContext);
+
+    const userDoc = getUserWithUsername(username);
+    console.log(userDoc);
 
     return (
         <main>
@@ -47,15 +52,7 @@ function SignInButton() {
 
 
 
-function SignOutButton() {
-    return (
-        <Button
-        onClick ={ () => {auth.signOut();}} 
-        variant='outlined'>
-            Sign out
-        </Button>
-    );
-}
+
 
 function UsernameForm () {
 
