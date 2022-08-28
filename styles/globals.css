@@ -1,12 +1,19 @@
 
 
-html,
-body {
+html {
   background-color: lightgray;
   padding: 0;
-  margin-top: 100px;
+
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 10vw;
+  padding-top: 100px;
+  background-color: lightgray;
 }
 
 a {
@@ -17,20 +24,6 @@ a {
 * {
   box-sizing: border-box;
 }
-.card-img-center {
-  width:20%;
-  display:block;
-  margin:auto;
-  border-radius: 50%;
-  max-width: 150px;
-}
-.box-center {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  text-align: center;
-}
-
 
 .card {
   padding: 2rem;
@@ -42,23 +35,7 @@ a {
 
 .card footer {
   display: flex;
-}
-
-main {
-  background-color : transparent;
-}
-
-.card-img-center {
-  width:20%;
-  display:block;
-  margin:auto;
-  border-radius: 50%;
-  max-width: 150px;
-}
-
-.card-info {
-  color: white;
-  background: var(--color-blue);
+  justify-content: space-between;
 }
 
 .navbar {
@@ -129,14 +106,4 @@ main {
 @keyframes spin {
  0%{ transform: rotate(0deg);}
  100%{ transform: rotate(360deg);} 
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: black;
-    background: white;
-  }
 }

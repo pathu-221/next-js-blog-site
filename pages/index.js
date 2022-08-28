@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+import { Button } from '@mui/material';
 import Link from 'next/link';
 import { firestore, fromMillis, postToJSON } from '@lib/firebase';
 import { useState } from 'react';
@@ -60,7 +61,7 @@ export default function Home(props) {
     <main>
       <PostFeed posts={posts}/>
       {
-      !loading && !postsEnd && <button onClick={getMorePosts}>Load More</button> 
+      !loading && !postsEnd && <Button variant='contained' onClick={getMorePosts}>Load More</Button> 
       }
 
       <Loader show={loading} />
