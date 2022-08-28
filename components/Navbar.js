@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Button, Avatar } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useContext } from "react";
+import { UserContext } from "@lib/context";
 
 const theme = createTheme({
     palette: {
@@ -12,8 +14,8 @@ const theme = createTheme({
 
 export default function Navbar() {
 
-    const user = null;
-    const username = null;
+    const { user, username } = useContext(UserContext);
+
     return (
         <nav className="navbar">
 
@@ -28,7 +30,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                 </ThemeProvider>
-                {username && (
+                {user && (
                     <div className="push-right">
                         <li >
                             <Link href="/admin">
@@ -41,14 +43,15 @@ export default function Navbar() {
                                 <Avatar
                                 sx={{
                                     width: '50px',
-                                    height: '50px'
+                                    height: '50px',
+                                    cursor: 'pointer'
                                 }} 
                                 alt='user photo' src={`${user?.photoURL}`}/>
                             </Link>
                         </li>
                     </div>
                 )}
-                {!username && (
+                {!user && (
                     <li>
                         <Link href='/enter'>
                             <Button className="button" variant='contained' size='large'>Log in</Button>
