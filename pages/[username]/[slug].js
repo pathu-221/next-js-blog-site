@@ -2,6 +2,8 @@ import { firestore, getUserWithUsername, postToJSON } from "@lib/firebase";
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import PostContent from '@components/PostContent';
 
+import MetaTags from "@components/MetaTags";
+
 export async function getStaticProps({ params }) {
 
     const { username, slug } = params;
@@ -51,6 +53,8 @@ export default function Post(props) {
 
     return (
         <main className="post-feed-container">
+            
+        <MetaTags title = {post.title}/>
             <section>
                 <PostContent post = { post } />
             </section>
