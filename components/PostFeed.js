@@ -6,7 +6,8 @@ export default function PostFeed({ posts, admin }){
 
 function PostItem ({ post }){
 
-    const wordCount = post?.content.trim().split(/\s + /g).length;
+    const wordCount = post?.content.split(' ').length;
+    console.log(wordCount);
     const minutesToRead = (wordCount/100 + 1).toFixed(0);
     return (
         <div className="card">
