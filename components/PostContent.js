@@ -16,7 +16,7 @@ export default function PostContent ({ post }) {
                 on { createdAt.toISOString()}
             </span>
 
-            <ReactMarkdown children={`${post.content}`}></ReactMarkdown>
+            <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
      )
 } 
