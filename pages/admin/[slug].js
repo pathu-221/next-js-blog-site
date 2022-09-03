@@ -1,5 +1,5 @@
 import AuthCheck from "@components/AuthCheck"
-import { useState } from "react";
+import { isValidElement, useState } from "react";
 import { useRouter } from "next/router";
 import { firestore, auth, serverTimestamp } from "@lib/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
@@ -69,8 +69,11 @@ function PostManager () {
 
 const PostForm = ({ defaultValues, postRef, preview}) => { 
     
-    const { register, handleSubmit, reset, watch } = useForm({ defaultValues, mode: 'onChange'})
+    const { register, handleSubmit, reset, watch, formState } = useForm({ defaultValues, mode: 'onChange'})
 
+    const { isValid, isDirty, errors } = formState;
+
+    console.log(errors);
     const updatePost = async ({ content, published}) => {
         await postRef.update({
             content,
@@ -102,7 +105,19 @@ const PostForm = ({ defaultValues, postRef, preview}) => {
                 width: 1,
                 backgroundColor: 'white'
             }}
-            name="content" {...register("content", { required: true })}></TextField>
+            name="content" {...register("content", { 
+            required: {value:true, message: 'Content is required'},
+            maxLength: {value: 30000, message: 'Content Too long'},
+            minLength: {value: 10, message: 'Content Too short' }}
+            )}></TextField>
+            {
+                errors.content && <strong style={{
+                    margin: '5px',
+                    color: 'red'
+                }}>{errors.content.message}</strong>
+            }
+
+
 
             <fieldset style={{border: 'none', padding: '0', margin: '0'}}>
                 <Checkbox name='published' type = 'checkbox'  {...register("published")} />
@@ -110,6 +125,7 @@ const PostForm = ({ defaultValues, postRef, preview}) => {
             </fieldset>
 
             <Button 
+            disabled={!isDirty || !isValid}
             sx={{
                 width: 1,
             }}
