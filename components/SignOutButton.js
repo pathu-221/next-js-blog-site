@@ -6,7 +6,7 @@ export default function SignOutButton() {
     return (
         <Button
         className='button'
-        onClick ={async () =>  { await auth.signOut(); router.push(`/`)}} 
+        onClick ={async () =>  { await auth.signOut();}} 
         variant='outlined'>
             Sign out
         </Button>

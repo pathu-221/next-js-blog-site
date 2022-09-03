@@ -36,7 +36,7 @@ service cloud.firestore {
             return isOwner && createValidUsername;
         }
 
-        function isValidUsername(userId) {
+        function isValidUsername(username) {
             let isOwner = request.auth.uid == request.resource.data.uid;
             let validLength = username.size() >= 3 && username.size() <= 15;
             let isValidUserDoc = getAfter(/databases/$(database)/documents/users/$(request.auth.uid)).data.username == username;

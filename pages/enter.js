@@ -5,8 +5,8 @@ import { TextField, Button, LoadingButton } from '@mui/material';
 import { useContext, useState, useCallback, useEffect } from 'react';
 import { UserContext } from '@lib/context';
 import SignOutButton from '@components/SignOutButton';
-
-
+import { useRouter } from 'next/router';
+import styles from '@styles/UserProfile.module.css';
 import debounce from 'lodash.debounce';
 
 export default function Enter ({}) {
@@ -31,17 +31,21 @@ export default function Enter ({}) {
 
 
 function SignInButton() {
-
+    const router = useRouter();
     const signInWithGoogle = async () => {
         await auth.signInWithPopup(googleAuthProvider);
+        router.push('/');
     }
 
     return (
         <>
         <Button 
-        className='google-btn'
+        sx={{
+            marginLeft: '50%',
+            transform: 'translateX(-50%)',
+        }}
         onClick = { signInWithGoogle }
-        variant = 'outlined'>
+        variant = 'contained'>
             <FcGoogle />
             SIGN IN WITH GOOGLE
         </Button>
@@ -112,7 +116,7 @@ function UsernameForm () {
 
     return (
         !username && (
-            <section className='username-form'>
+            <section className={styles.usernameForm}>
                 <h3>Choose username</h3>
 
                 <form onSubmit={onSubmit}>
@@ -124,6 +128,7 @@ function UsernameForm () {
                 className='input-field'
                 sx ={{
                     width: '60vw',
+                    fontSize: 'larger'
                 }}
                 error = { !isValid}
                 onChange={onChange}
