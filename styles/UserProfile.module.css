@@ -9,3 +9,35 @@
     border-radius: 50%;
     width: 15%;
 }
+
+.postEdit {
+   display: flex;
+   width: 100%;
+   height: 100%;
+   margin: 0;
+}
+
+.formContainer {
+    flex: 0.8;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-right: 10px;
+    height: 100%;
+}
+
+.buttonsContaier {
+    flex: 0.2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.formContainer h1 {
+    font-size: 40px;
+}
+
+.hidden {
+    display: none;
+}
