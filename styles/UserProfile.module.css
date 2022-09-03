@@ -41,3 +41,17 @@
 .hidden {
     display: none;
 }
+
+.imageUploadButton {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+.imageUploadButton code {
+    background: white;
+    color: black;
+    margin-left: 10px;
+    font-size: medium;
+}

@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Button, TextField, Checkbox } from '@mui/material'; 
 import styles from '@styles/UserProfile.module.css';
+import ImageUploader from "@components/ImageUploader";
 
 export default function AdminPostEdit ({})  {
     return (
@@ -97,6 +98,7 @@ const PostForm = ({ defaultValues, postRef, preview}) => {
         }
 
         <div className={preview ?  styles.hidden : 'controls'}>
+            <ImageUploader />
             <TextField 
             className={ styles.textArea}
             multiline
