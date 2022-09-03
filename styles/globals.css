@@ -30,6 +30,8 @@ a {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   margin: 1rem 0;
   background-color: white;
@@ -123,7 +125,7 @@ a {
   flex: 0.15;
   display: flex;
   margin-left: 5px;
-  max-height: 80px;
+  max-height: 150px;
   align-items: center;
   justify-content: center;
 }

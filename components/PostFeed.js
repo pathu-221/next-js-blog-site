@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { Button } from '@mui/material';
 
 export default function PostFeed({ posts, admin }){
     return posts ? posts.map( post => <PostItem post={post} key={post.slug} admin={admin}/>) : null
 }
 
-function PostItem ({ post }){
+function PostItem ({ post, admin }){
 
     const wordCount = post?.content.split(' ').length;
     console.log(wordCount);
@@ -28,8 +29,22 @@ function PostItem ({ post }){
                 <span>
                     {wordCount} words. {minutesToRead} min read
                 </span>
-                <span>❤ {post.heartCount} Hearts</span>
+                <span>💗 {post.heartCount} Hearts</span>
             </footer>
+
+            {
+                admin && (
+                    <Link href={`/admin/${post.slug}`}>
+                        <Button variant='contained' sx={{
+                            marginTop: '10px',
+                            width: '10vw',
+                            height: '2.5rem'
+                        }}>
+                            Edit
+                        </Button>
+                    </Link>
+                )
+            }
         </div>
     )
 

@@ -1,9 +1,11 @@
 import { firestore, getUserWithUsername, postToJSON } from "@lib/firebase";
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import PostContent from '@components/PostContent';
-
+import AuthCheck from "@components/AuthCheck";
+import Link from "next/link";
+import Heart from "@components/HeartButton"; 
 import MetaTags from "@components/MetaTags";
-
+import { Button } from "@mui/material";
 export async function getStaticProps({ params }) {
 
     const { username, slug } = params;
@@ -59,10 +61,20 @@ export default function Post(props) {
                 <PostContent post = { post } />
             </section>
 
-            <aside className="card">
+            <aside className="card" >
                 <p>
                     <strong>{ post.heartCount || 0 } 💗 Heart</strong>
                 </p>
+
+                <AuthCheck
+                fallback={
+                    <Link href='/enter'>
+                    <Button variant='contained'>💗Sign Up</Button>
+                    </Link>
+                }
+                >
+                    <Heart postRef={ postRef }/>
+                </AuthCheck>
             </aside>
         </main>
     );
