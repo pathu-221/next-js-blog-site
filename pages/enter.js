@@ -1,5 +1,5 @@
 
-import { auth, firestore, getUserWithUsername, googleAuthProvider } from '@lib/firebase';
+import { auth, firestore, getUserWithUsername, googleAuthProvider, anonymousSignIn } from '@lib/firebase';
 import { FcGoogle } from 'react-icons/fc';
 import { TextField, Button, LoadingButton } from '@mui/material';
 import { useContext, useState, useCallback, useEffect } from 'react';
@@ -47,6 +47,16 @@ function SignInButton() {
         variant = 'contained'>
             <FcGoogle />
             SIGN IN WITH GOOGLE
+        </Button>
+        <Button 
+        sx={{
+            marginLeft: '50%',
+            transform: 'translateX(-50%)',
+            marginTop: '40px'
+        }}
+        onClick = { () => auth.signInAnonymously() }
+        variant = 'contained'>
+            SIGN IN ANONYMOUSLY
         </Button>
         </>
     );
