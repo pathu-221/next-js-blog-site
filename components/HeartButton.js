@@ -33,14 +33,14 @@ export default function Heart({ postRef}) {
             heartDoc?.exists() ? (
                 <Button variant='contained' sx={{
                     marginTop: '10px',
-                    width: '10vw',
+                    width: '200px',
                     height: '2.5rem'
                 }} onClick={removeHeart}>💔 Unheart</Button>
             )
             :
             (<Button variant='contained' sx={{
                 marginTop: '10px',
-                width: '10vw',
+                width: '200px',
                 height: '2.5rem'
             }} onClick={addHeart}>💗 Heart</Button>)
         }

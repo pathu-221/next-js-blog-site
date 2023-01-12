@@ -58,7 +58,7 @@ export default function Home(props) {
   }
 
   return (
-    <main>
+    <main className={styles.mainElement}>
       <PostFeed posts={posts}/>
       {
       !loading && !postsEnd && <Button variant='contained' onClick={getMorePosts}>Load More</Button> 

@@ -130,6 +130,13 @@ a {
   justify-content: center;
 }
 
+
+@media screen and (width < 680px) {
+  .post-feed-container {
+    flex-direction: column;
+  }
+}
+
 @keyframes spin {
  0%{ transform: rotate(0deg);}
  100%{ transform: rotate(360deg);} 
